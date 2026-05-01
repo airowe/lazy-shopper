@@ -1,5 +1,5 @@
-app_identifier("com.airowe.lazyshopper")
+app_identifier("com.bowie.lazyshopper")
 apple_id("")
-team_id("")
+team_id("7WWYCV9VT8")
 
 json_key_file("")
