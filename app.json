@@ -16,6 +16,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.bowie.lazyshopper",
+      "appleTeamId": "7WWYCV9VT8",
       "supportsTablet": true
     },
     "android": {
