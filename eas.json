@@ -18,10 +18,20 @@
     },
     "production": {
       "distribution": "store",
-      "autoIncrement": true
+      "autoIncrement": true,
+      "ios": {
+        "appleTeamId": "7WWYCV9VT8",
+        "credentialsSource": "remote"
+      }
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "adaminsley@gmail.com",
+        "ascAppId": "6765782751",
+        "appleTeamId": "7WWYCV9VT8"
+      }
+    }
   }
 }
