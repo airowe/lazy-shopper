@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "bestvalue",
-    "slug": "bestvalue",
+    "name": "Lazy Shopper",
+    "slug": "lazy-shopper",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "bestvalue",
+    "scheme": "lazy-shopper",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
