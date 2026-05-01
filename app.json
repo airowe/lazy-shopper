@@ -2,6 +2,7 @@
   "expo": {
     "name": "Lazy Shopper",
     "slug": "lazy-shopper",
+    "owner": "airowe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -36,6 +37,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b1060066-c596-48f6-bc58-9e37c25b0e7e"
+      }
     }
   }
 }
