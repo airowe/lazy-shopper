@@ -17,7 +17,10 @@
     "ios": {
       "bundleIdentifier": "com.bowie.lazyshopper",
       "appleTeamId": "7WWYCV9VT8",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.bowie.lazyshopper",
