@@ -1,0 +1,46 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build a development client for simulator"
+  lane :dev do
+    sh("npx", "eas", "build", "--profile", "development", "--platform", "ios", "--local")
+  end
+
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    sh("npx", "eas", "build", "--profile", "preview", "--platform", "ios", "--auto-submit")
+  end
+
+  desc "Build and submit to App Store"
+  lane :release do
+    sh("npx", "eas", "build", "--profile", "production", "--platform", "ios", "--auto-submit")
+  end
+
+  desc "Run tests"
+  lane :test do
+    sh("npm", "run", "test:coverage")
+  end
+
+  desc "Full CI: test, build, and submit to TestFlight"
+  lane :ci do
+    test
+    beta
+  end
+end
+
+platform :android do
+  desc "Build a development APK"
+  lane :dev do
+    sh("npx", "eas", "build", "--profile", "development", "--platform", "android", "--local")
+  end
+
+  desc "Build and upload to Play Console (internal track)"
+  lane :beta do
+    sh("npx", "eas", "build", "--profile", "preview", "--platform", "android", "--auto-submit")
+  end
+
+  desc "Build and submit to Play Store"
+  lane :release do
+    sh("npx", "eas", "build", "--profile", "production", "--platform", "android", "--auto-submit")
+  end
+end

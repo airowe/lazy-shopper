@@ -1,0 +1,5 @@
+app_identifier("com.airowe.lazyshopper")
+apple_id("")
+team_id("")
+
+json_key_file("")
