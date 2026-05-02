@@ -10,6 +10,8 @@ import { useColorScheme } from '@/components/useColorScheme';
 import { BasketProvider } from '@/contexts/BasketContext';
 import { PreferencesProvider } from '@/contexts/PreferencesContext';
 import { ListsProvider } from '@/contexts/ListsContext';
+import { ScanProvider } from '@/contexts/ScanContext';
+import { AlertsProvider } from '@/contexts/AlertsContext';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -46,15 +48,18 @@ function RootLayoutNav() {
       <PreferencesProvider>
         <ListsProvider>
           <BasketProvider>
-            <Stack screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="index" />
-              <Stack.Screen name="product/[id]" options={{ headerShown: true, title: 'Product' }} />
-              <Stack.Screen name="basket" options={{ headerShown: true, title: 'Basket' }} />
-              <Stack.Screen name="lists/index" options={{ headerShown: true, title: 'Lists' }} />
-              <Stack.Screen name="lists/[id]" options={{ headerShown: true, title: 'List' }} />
-              <Stack.Screen name="preferences" options={{ headerShown: true, title: 'Preferences' }} />
-              <Stack.Screen name="alerts" options={{ headerShown: true, title: 'Alerts' }} />
-            </Stack>
+            <ScanProvider>
+              <Stack screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="index" />
+                <Stack.Screen name="product/[id]" options={{ headerShown: true, title: 'Product' }} />
+                <Stack.Screen name="basket" options={{ headerShown: true, title: 'Basket' }} />
+                <Stack.Screen name="lists/index" options={{ headerShown: true, title: 'Lists' }} />
+                <Stack.Screen name="lists/[id]" options={{ headerShown: true, title: 'List' }} />
+                <Stack.Screen name="preferences" options={{ headerShown: true, title: 'Preferences' }} />
+                <Stack.Screen name="alerts" options={{ headerShown: true, title: 'Alerts' }} />
+                <Stack.Screen name="scan" options={{ headerShown: true, title: 'Scan' }} />
+              </Stack>
+            </ScanProvider>
           </BasketProvider>
         </ListsProvider>
       </PreferencesProvider>

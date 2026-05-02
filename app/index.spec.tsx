@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, act } from '@testing-library/react-native';
-import HomeScreen from './index';
+import HomeScreen from './(tabs)/index';
 
 jest.mock('expo-haptics', () => ({
   notificationAsync: jest.fn(async () => {}),
