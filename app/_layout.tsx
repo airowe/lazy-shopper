@@ -7,6 +7,9 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import { BasketProvider } from '@/contexts/BasketContext';
+import { PreferencesProvider } from '@/contexts/PreferencesContext';
+import { ListsProvider } from '@/contexts/ListsContext';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -40,9 +43,21 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="index" />
-      </Stack>
+      <PreferencesProvider>
+        <ListsProvider>
+          <BasketProvider>
+            <Stack screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="index" />
+              <Stack.Screen name="product/[id]" options={{ headerShown: true, title: 'Product' }} />
+              <Stack.Screen name="basket" options={{ headerShown: true, title: 'Basket' }} />
+              <Stack.Screen name="lists/index" options={{ headerShown: true, title: 'Lists' }} />
+              <Stack.Screen name="lists/[id]" options={{ headerShown: true, title: 'List' }} />
+              <Stack.Screen name="preferences" options={{ headerShown: true, title: 'Preferences' }} />
+              <Stack.Screen name="alerts" options={{ headerShown: true, title: 'Alerts' }} />
+            </Stack>
+          </BasketProvider>
+        </ListsProvider>
+      </PreferencesProvider>
     </ThemeProvider>
   );
 }
