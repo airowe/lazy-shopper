@@ -16,6 +16,8 @@ import { searchProducts, compareOffers, type ComparisonResult } from '@/lib/comp
 import { PRODUCTS } from '@/lib/data';
 import OfferCard from '@/components/OfferCard';
 import BestPickBanner from '@/components/BestPickBanner';
+import { useWeeklyRun } from '@/contexts/WeeklyRunContext';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
   const [query, setQuery] = useState('');
@@ -28,6 +30,8 @@ export default function HomeScreen() {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(30)).current;
   const inputRef = useRef<TextInput>(null);
+  const router = useRouter();
+  const { suggestRun, startRun, dismissSuggestion, run } = useWeeklyRun();
 
   const animateIn = useCallback(() => {
     fadeAnim.setValue(0);
@@ -108,6 +112,33 @@ export default function HomeScreen() {
             Compare grocery prices across stores.{'\n'}Find the best deal in seconds.
           </Text>
         </View>
+
+        {suggestRun && !run.isActive && (
+          <View style={styles.runBanner} lightColor="#1e3a5f" darkColor="#1e3a5f">
+            <View style={styles.runBannerContent} lightColor="transparent" darkColor="transparent">
+              <Text style={styles.runBannerEmoji}>🛒</Text>
+              <View style={styles.runBannerText} lightColor="transparent" darkColor="transparent">
+                <Text style={styles.runBannerTitle}>Weekly Run Ready</Text>
+                <Text style={styles.runBannerSubtitle}>Your recurring list is ready to go.</Text>
+              </View>
+            </View>
+            <View style={styles.runBannerActions} lightColor="transparent" darkColor="transparent">
+              <Pressable
+                style={styles.runBannerStartBtn}
+                onPress={() => {
+                  void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                  startRun();
+                  router.push('/run');
+                }}
+              >
+                <Text style={styles.runBannerStartText}>Start Run</Text>
+              </Pressable>
+              <Pressable onPress={dismissSuggestion} style={styles.runBannerDismiss}>
+                <Text style={styles.runBannerDismissText}>Later</Text>
+              </Pressable>
+            </View>
+          </View>
+        )}
 
         <View style={styles.searchSection} lightColor="#0f172a" darkColor="#0f172a">
           <View style={styles.inputRow}>
@@ -493,4 +524,34 @@ const styles = StyleSheet.create({
   spacer: {
     height: 40,
   },
+  runBanner: {
+    marginHorizontal: 24,
+    marginBottom: 16,
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#3b82f6',
+  },
+  runBannerContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 12,
+  },
+  runBannerEmoji: { fontSize: 32 },
+  runBannerText: { flex: 1 },
+  runBannerTitle: { color: '#f1f5f9', fontSize: 16, fontWeight: '700' },
+  runBannerSubtitle: { color: '#94a3b8', fontSize: 13, marginTop: 2 },
+  runBannerActions: { flexDirection: 'row', gap: 10 },
+  runBannerStartBtn: {
+    backgroundColor: '#3b82f6',
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    flex: 1,
+    alignItems: 'center',
+  },
+  runBannerStartText: { color: '#fff', fontSize: 14, fontWeight: '700' },
+  runBannerDismiss: { paddingVertical: 10, paddingHorizontal: 12 },
+  runBannerDismissText: { color: '#64748b', fontSize: 13, fontWeight: '500' },
 });

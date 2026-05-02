@@ -1,6 +1,12 @@
 import { render, screen, fireEvent, act } from '@testing-library/react-native';
 import HomeScreen from './(tabs)/index';
 
+jest.mock('@react-native-async-storage/async-storage', () => ({
+  setItem: jest.fn(() => Promise.resolve()),
+  getItem: jest.fn(() => Promise.resolve(null)),
+  removeItem: jest.fn(() => Promise.resolve()),
+}));
+
 jest.mock('expo-haptics', () => ({
   notificationAsync: jest.fn(async () => {}),
   impactAsync: jest.fn(async () => {}),
@@ -14,6 +20,27 @@ jest.mock('expo-haptics', () => ({
     Medium: 'medium',
     Heavy: 'heavy',
   },
+}));
+
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ push: jest.fn(), replace: jest.fn() }),
+  Stack: { Screen: () => null },
+  Link: ({ children }: any) => children,
+}));
+
+jest.mock('@/contexts/WeeklyRunContext', () => ({
+  useWeeklyRun: () => ({
+    run: { isActive: false },
+    suggestRun: false,
+    startRun: jest.fn(),
+    dismissSuggestion: jest.fn(),
+    cancelRun: jest.fn(),
+    advanceStep: jest.fn(),
+    toggleItemChecked: jest.fn(),
+    completeRun: jest.fn(),
+    hasRecurringList: false,
+  }),
+  WeeklyRunProvider: ({ children }: any) => children,
 }));
 
 jest.mock('@/components/Themed', () => {
