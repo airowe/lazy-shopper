@@ -14,6 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { OfferCard } from '@/components/OfferCard';
+import { WishlistSheet } from '@/components/WishlistSheet';
 import { radius, theme } from '@/constants/theme';
 import { STORES, search } from '@/lib/catalog';
 import type { Product } from '@/lib/catalog';
@@ -32,6 +33,7 @@ export default function HomeScreen() {
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [result, setResult] = useState<Result>({ kind: 'idle' });
+  const [wishlistOpen, setWishlistOpen] = useState(false);
 
   const onSubmit = () => {
     const q = query.trim();
@@ -72,7 +74,16 @@ export default function HomeScreen() {
           contentContainerStyle={styles.content}
           keyboardShouldPersistTaps="handled"
         >
-          <Text style={styles.wordmark}>Lazy Shopper</Text>
+          <View style={styles.headerRow}>
+            <Text style={styles.wordmark}>Lazy Shopper</Text>
+            <Pressable
+              testID="wishlist-open"
+              onPress={() => setWishlistOpen(true)}
+              hitSlop={10}
+            >
+              <Text style={styles.heart}>♥</Text>
+            </Pressable>
+          </View>
           <Text style={styles.tagline}>What do you want?</Text>
 
           <View style={styles.inputRow}>
@@ -165,6 +176,10 @@ export default function HomeScreen() {
           ) : null}
         </ScrollView>
       </KeyboardAvoidingView>
+      <WishlistSheet
+        visible={wishlistOpen}
+        onClose={() => setWishlistOpen(false)}
+      />
     </SafeAreaView>
   );
 }
@@ -173,12 +188,18 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: theme.bg },
   flex: { flex: 1 },
   content: { padding: 20, gap: 14 },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   wordmark: {
     color: theme.grass,
     fontSize: 26,
     fontWeight: '800',
     letterSpacing: 0.5,
   },
+  heart: { color: theme.grass, fontSize: 24 },
   tagline: { color: theme.text, fontSize: 22, fontWeight: '700', marginTop: 4 },
   inputRow: { justifyContent: 'center' },
   input: {
