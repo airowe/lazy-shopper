@@ -19,9 +19,10 @@
       "appleTeamId": "7WWYCV9VT8",
       "supportsTablet": true,
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "CFBundleIconName": "AppIcon"
       },
-      "buildNumber": "14"
+      "buildNumber": "15"
     },
     "android": {
       "package": "com.bowie.lazyshopper",
