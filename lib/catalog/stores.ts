@@ -4,7 +4,7 @@ export const STORES: Store[] = [
   {
     id: 'amazon',
     name: 'Amazon',
-    logoUrl: 'https://logo.clearbit.com/amazon.com',
+    brandColor: '#FF9900',
     rating: 4.5,
     supportsPickup: false,
     supportsDelivery: true,
@@ -13,7 +13,7 @@ export const STORES: Store[] = [
   {
     id: 'target',
     name: 'Target',
-    logoUrl: 'https://logo.clearbit.com/target.com',
+    brandColor: '#CC0000',
     rating: 4.6,
     supportsPickup: true,
     supportsDelivery: true,
@@ -22,7 +22,7 @@ export const STORES: Store[] = [
   {
     id: 'walmart',
     name: 'Walmart',
-    logoUrl: 'https://logo.clearbit.com/walmart.com',
+    brandColor: '#0071CE',
     rating: 4.3,
     supportsPickup: true,
     supportsDelivery: true,
@@ -31,7 +31,7 @@ export const STORES: Store[] = [
   {
     id: 'lego',
     name: 'LEGO Shop',
-    logoUrl: 'https://logo.clearbit.com/lego.com',
+    brandColor: '#D01012',
     rating: 4.8,
     supportsPickup: false,
     supportsDelivery: true,
@@ -40,7 +40,7 @@ export const STORES: Store[] = [
   {
     id: 'bestbuy',
     name: 'Best Buy',
-    logoUrl: 'https://logo.clearbit.com/bestbuy.com',
+    brandColor: '#0046BE',
     rating: 4.4,
     supportsPickup: true,
     supportsDelivery: true,
@@ -48,7 +48,7 @@ export const STORES: Store[] = [
   {
     id: 'gamestop',
     name: 'GameStop',
-    logoUrl: 'https://logo.clearbit.com/gamestop.com',
+    brandColor: '#EC1D24',
     rating: 4.0,
     supportsPickup: true,
     supportsDelivery: true,

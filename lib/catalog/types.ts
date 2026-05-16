@@ -49,7 +49,7 @@ export type Product = {
 export type Store = {
   id: StoreId;
   name: string;
-  logoUrl: string;
+  brandColor: string;
   rating: number;
   supportsPickup: boolean;
   supportsDelivery: boolean;
