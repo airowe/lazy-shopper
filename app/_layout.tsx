@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import { runAlertCheckOnOpen } from '@/lib/alerts/runOnOpen';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -27,6 +28,10 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
+  useEffect(() => {
+    runAlertCheckOnOpen().catch(() => {});
+  }, []);
 
   if (!loaded) {
     return null;
