@@ -43,15 +43,16 @@ describe('ProductDetailScreen', () => {
   it('opens the retailer in a browser from the best-pick button', () => {
     render(<ProductDetailScreen />);
     fireEvent.press(screen.getByTestId('open-best'));
+    // All offers tie at RRP; the price-tie breaks to LEGO Shop (top rating).
     expect(mockOpenBrowser).toHaveBeenCalledWith(
-      expect.stringContaining('amazon.com')
+      expect.stringContaining('lego.com')
     );
   });
 
   it('lists the other stores', () => {
     render(<ProductDetailScreen />);
     expect(screen.getByTestId('offer-target')).toBeTruthy();
-    expect(screen.getByTestId('offer-lego')).toBeTruthy();
+    expect(screen.getByTestId('offer-amazon')).toBeTruthy();
   });
 
   it('toggles save state and persists it', async () => {

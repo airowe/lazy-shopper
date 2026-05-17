@@ -14,8 +14,9 @@ const alert = (over: Partial<PriceAlert>): PriceAlert => ({
 describe('bestInStockPrice', () => {
   it('returns the cheapest in-stock price for a real product', () => {
     const best = bestInStockPrice('lego-21595-ender-dragon', NOW);
-    // Amazon $56.99 is the cheapest in-stock offer
-    expect(best).toEqual({ price: 56.99, storeName: 'Amazon' });
+    // All three offers are at RRP $59.99; the price-tie breaks to the
+    // highest-rated store, LEGO Shop (4.8).
+    expect(best).toEqual({ price: 59.99, storeName: 'LEGO Shop' });
   });
 
   it('returns undefined for an unknown product', () => {
@@ -27,8 +28,8 @@ describe('evaluateAlerts', () => {
   it('fires when the best price is at or below target', () => {
     const hits = evaluateAlerts([alert({ targetPrice: 60 })], NOW);
     expect(hits).toHaveLength(1);
-    expect(hits[0].price).toBe(56.99);
-    expect(hits[0].storeName).toBe('Amazon');
+    expect(hits[0].price).toBe(59.99);
+    expect(hits[0].storeName).toBe('LEGO Shop');
   });
 
   it('does not fire when the price is above target', () => {

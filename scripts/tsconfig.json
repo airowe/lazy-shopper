@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "es2023",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": ["node"],
+    "lib": ["es2023"]
+  },
+  "include": ["**/*.ts", "../lib/catalog/**/*.ts"],
+  "exclude": ["../lib/catalog/**/*.spec.ts"]
+}
