@@ -39,3 +39,6 @@ coverage/
 # generated native folders
 /ios
 /android
+
+# python
+__pycache__/

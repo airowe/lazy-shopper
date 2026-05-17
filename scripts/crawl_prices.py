@@ -5,7 +5,7 @@ gets past the bot detection that blocks cloud fetch APIs, and regenerates
 lib/catalog/offers.ts. The app ships that file as static data — fast,
 offline, no backend. Re-run weekly.
 
-    /tmp/crawl-venv/bin/python scripts/crawl_prices.py
+    ~/.crawl4ai-venv/bin/python scripts/crawl_prices.py
 
 A page that still blocks the crawl, or yields no parseable price, falls back
 to the verified RRP from the fetch plan — the script never invents a number.

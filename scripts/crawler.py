@@ -5,7 +5,7 @@ markdown, using a local stealth browser that gets past most retail bot
 detection. Import `fetch_pages` from other scripts.
 
 Run with the project's crawler venv:
-    /tmp/crawl-venv/bin/python <script>.py
+    ~/.crawl4ai-venv/bin/python <script>.py
 """
 
 from __future__ import annotations
