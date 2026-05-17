@@ -25,12 +25,12 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "lego-21274-warden-encounter",
     "storeId": "amazon",
-    "price": 19.99,
+    "price": 19.97,
     "currency": "USD",
     "url": "https://www.amazon.com/dp/B0DRW63X1Z",
     "inStock": true,
@@ -44,7 +44,7 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "lego-21274-warden-encounter",
@@ -82,12 +82,12 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "lego-21265-crafting-table",
     "storeId": "amazon",
-    "price": 89.99,
+    "price": 77.88,
     "currency": "USD",
     "url": "https://www.amazon.com/dp/B0CRX64YFN",
     "inStock": true,
@@ -101,7 +101,7 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "lego-21265-crafting-table",
@@ -220,7 +220,7 @@ export const OFFERS: Offer[] = [
   {
     "productId": "lego-21595-ender-dragon",
     "storeId": "lego",
-    "price": 59.99,
+    "price": 69.99,
     "currency": "USD",
     "url": "https://www.lego.com/en-us/product/the-ender-dragon-21595",
     "inStock": true,
@@ -234,7 +234,7 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "lego-21595-ender-dragon",
@@ -315,7 +315,7 @@ export const OFFERS: Offer[] = [
   {
     "productId": "lego-75408-mandalorian-grogu-speeder",
     "storeId": "lego",
-    "price": 9.99,
+    "price": 6.95,
     "currency": "USD",
     "url": "https://www.lego.com/en-us/product/din-djarin-and-grogu-s-speeder-bike-75408",
     "inStock": true,
@@ -329,7 +329,7 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "lego-75408-mandalorian-grogu-speeder",
@@ -353,7 +353,7 @@ export const OFFERS: Offer[] = [
   {
     "productId": "lego-75409-cobb-vanth-cad-bane",
     "storeId": "lego",
-    "price": 34.99,
+    "price": 35,
     "currency": "USD",
     "url": "https://www.lego.com/en-us/product/75409",
     "inStock": true,
@@ -367,7 +367,7 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "lego-75409-cobb-vanth-cad-bane",
@@ -443,7 +443,7 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "lego-42231-fast-furious-charger",
@@ -467,7 +467,7 @@ export const OFFERS: Offer[] = [
   {
     "productId": "minecraft-creeper-plush-8in",
     "storeId": "amazon",
-    "price": 24.95,
+    "price": 14.99,
     "currency": "USD",
     "url": "https://www.amazon.com/dp/B08HR84LWQ",
     "inStock": true,
@@ -477,7 +477,7 @@ export const OFFERS: Offer[] = [
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "minecraft-creeper-plush-8in",
@@ -512,7 +512,7 @@ export const OFFERS: Offer[] = [
   {
     "productId": "minecraft-enderman-plush-7in",
     "storeId": "amazon",
-    "price": 19.99,
+    "price": 15.99,
     "currency": "USD",
     "url": "https://www.amazon.com/dp/B00F65I83A",
     "inStock": true,
@@ -522,7 +522,7 @@ export const OFFERS: Offer[] = [
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "minecraft-enderman-plush-7in",
@@ -542,7 +542,7 @@ export const OFFERS: Offer[] = [
   {
     "productId": "minecraft-game-switch",
     "storeId": "amazon",
-    "price": 29.99,
+    "price": 29.83,
     "currency": "USD",
     "url": "https://www.amazon.com/dp/B07D13QGXM",
     "inStock": true,
@@ -552,7 +552,7 @@ export const OFFERS: Offer[] = [
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
     "productId": "minecraft-game-switch",

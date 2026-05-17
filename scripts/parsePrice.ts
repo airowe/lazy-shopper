@@ -1,49 +1,80 @@
-// Extracts a USD price from fetched retailer page text (markdown).
+// Extracts a USD price from a fetched retailer page (markdown).
 //
-// Pages vary wildly, so this is deliberately conservative: it finds dollar
-// amounts, drops implausible ones, and returns the most likely sale price.
-// A miss returns null — the caller falls back to the known RRP rather than
-// inventing a number.
+// Retailer pages are noisy — "frequently bought together" carousels,
+// shipping thresholds, financing offers all look like prices. So parsing is
+// source-aware: each retailer has a strategy keyed to a signal that actually
+// identifies *this product's* price. A miss returns null and the caller
+// falls back to verified RRP — the script never guesses.
 
-const PRICE_RE = /\$\s?([0-9]{1,3}(?:,[0-9]{3})*(?:\.[0-9]{2})?)/g;
-
-function toNumber(raw: string): number {
-  return Number(raw.replace(/,/g, ''));
-}
-
-// Plausible price range for a kid's toy/game. Anything outside is noise
-// (shipping thresholds, unrelated products, gift-card amounts, etc.).
-const MIN_PRICE = 3;
-const MAX_PRICE = 700;
+import type { StoreId } from '../lib/catalog/types.ts';
 
 export type ParseOptions = {
-  // Known manufacturer RRP. Prices wildly above it are rejected as noise;
-  // a price near or below it is trusted.
+  storeId: StoreId;
   rrp: number;
 };
+
+const round2 = (n: number): number => Math.round(n * 100) / 100;
+
+// A scraped price is only trusted if it lands in a sane band around the
+// known RRP. Retail discounts rarely exceed ~45%; prices above RRP are
+// possible (scalping, bundles) but we cap at 1.2x to reject cross-sell noise.
+function plausible(price: number, rrp: number): boolean {
+  return price >= rrp * 0.55 && price <= rrp * 1.2;
+}
+
+// Amazon embeds a buybox JSON blob with the authoritative current price:
+//   {"desktop_buybox_group_1":[{"displayPrice":"$19.97","priceAmount":19.97,...
+function parseAmazon(text: string, rrp: number): number | null {
+  const m = text.match(/"priceAmount"\s*:\s*([0-9]+(?:\.[0-9]+)?)/);
+  if (!m) return null;
+  const price = round2(Number(m[1]));
+  return plausible(price, rrp) ? price : null;
+}
+
+// LEGO.com product pages are clean — the only dollar amounts on the page
+// are the product price (usually repeated). Take the first plausible one.
+function parseLego(text: string, rrp: number): number | null {
+  const matches = [...text.matchAll(/\$\s?([0-9]+(?:\.[0-9]{2})?)/g)];
+  for (const m of matches) {
+    const price = round2(Number(m[1]));
+    if (plausible(price, rrp)) return price;
+  }
+  return null;
+}
+
+// Generic fallback for other retailers' product pages: collect all dollar
+// amounts, keep only those plausible against RRP, and take the most
+// frequent one (a product page repeats the real price; noise is scattered).
+function parseGeneric(text: string, rrp: number): number | null {
+  const counts = new Map<number, number>();
+  for (const m of text.matchAll(/\$\s?([0-9]+(?:\.[0-9]{2})?)/g)) {
+    const price = round2(Number(m[1]));
+    if (!plausible(price, rrp)) continue;
+    counts.set(price, (counts.get(price) ?? 0) + 1);
+  }
+  if (counts.size === 0) return null;
+  let best = 0;
+  let bestCount = 0;
+  for (const [price, count] of counts) {
+    if (count > bestCount) {
+      best = price;
+      bestCount = count;
+    }
+  }
+  return best || null;
+}
 
 export function parsePrice(
   text: string | null,
   opts: ParseOptions
 ): number | null {
   if (!text) return null;
-
-  const candidates: number[] = [];
-  let m: RegExpExecArray | null;
-  while ((m = PRICE_RE.exec(text)) !== null) {
-    const value = toNumber(m[1]);
-    if (value < MIN_PRICE || value > MAX_PRICE) continue;
-    // A retailer rarely sells above RRP; allow a small markup for noise
-    // tolerance but reject anything more than 1.5x RRP.
-    if (value > opts.rrp * 1.5) continue;
-    candidates.push(value);
+  switch (opts.storeId) {
+    case 'amazon':
+      return parseAmazon(text, opts.rrp);
+    case 'lego':
+      return parseLego(text, opts.rrp);
+    default:
+      return parseGeneric(text, opts.rrp);
   }
-
-  if (candidates.length === 0) return null;
-
-  // The lowest plausible candidate is almost always the active sale price
-  // (struck-through originals read higher; the live price reads lowest or
-  // equal). Clamp to two decimals.
-  const price = Math.min(...candidates);
-  return Math.round(price * 100) / 100;
 }

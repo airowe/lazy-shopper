@@ -36,13 +36,20 @@ async function main(): Promise<void> {
   // RRP fallback. Use it to correct the catalog without a TinyFish key.
   const offline = process.argv.includes('--offline');
 
-  const allUrls = FETCH_PLAN.flatMap((p) => p.targets.map((t) => t.url));
+  // Only direct product pages are fetched; search pages can't yield a
+  // single product's price and keep their RRP fallback.
+  const fetchUrls = FETCH_PLAN.flatMap((p) =>
+    p.targets.filter((t) => t.productPage).map((t) => t.url)
+  );
   let fetched = new Map<string, FetchResult>();
   if (offline) {
     console.log('Offline mode — using verified RRP for every offer.');
   } else {
-    console.log(`Fetching ${allUrls.length} retailer pages via TinyFish...`);
-    fetched = await fetchAll(allUrls);
+    console.log(
+      `Fetching ${fetchUrls.length} product pages via TinyFish ` +
+        `(search pages skipped)...`
+    );
+    fetched = await fetchAll(fetchUrls);
   }
 
   const offers: Offer[] = [];
@@ -53,7 +60,10 @@ async function main(): Promise<void> {
     for (const target of plan.targets) {
       const prior = priorOffer(plan.productId, target.storeId);
       const page = fetched.get(target.url);
-      const price = parsePrice(page?.text ?? null, { rrp: plan.rrp });
+      const price = parsePrice(page?.text ?? null, {
+        storeId: target.storeId,
+        rrp: plan.rrp,
+      });
 
       const usedPrice = price ?? plan.rrp;
       if (price !== null) scraped++;

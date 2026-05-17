@@ -71,7 +71,8 @@ describe('rankOffers — badges', () => {
     const p = getProduct('minecraft-creeper-plush-8in')!;
     const ranked = rankOffers(p, getOffersFor(p.id), STORES, NOW);
     const bv = ranked.find((r) => r.badges.includes('best-value'));
-    expect(bv?.offer.storeId).toBe('target');
+    // Amazon's scraped $14.99 beats Target/Walmart at RRP $24.95.
+    expect(bv?.offer.storeId).toBe('amazon');
   });
 
   it('never awards best-value to an out-of-stock offer', () => {
