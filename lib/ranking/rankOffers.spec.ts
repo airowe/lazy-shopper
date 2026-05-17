@@ -68,10 +68,14 @@ describe('rankOffers — ordering', () => {
 
 describe('rankOffers — badges', () => {
   it('awards best-value to the cheapest in-stock offer', () => {
-    const p = getProduct('minecraft-creeper-plush-8in')!;
-    const ranked = rankOffers(p, getOffersFor(p.id), STORES, NOW);
+    const p = getProduct('lego-21595-ender-dragon')!;
+    const offers = [
+      baseOffer({ storeId: 'amazon', price: 14.99 }),
+      baseOffer({ storeId: 'target', price: 24.95 }),
+      baseOffer({ storeId: 'walmart', price: 24.95 }),
+    ];
+    const ranked = rankOffers(p, offers, STORES, NOW);
     const bv = ranked.find((r) => r.badges.includes('best-value'));
-    // Amazon's scraped $14.99 beats Target/Walmart at RRP $24.95.
     expect(bv?.offer.storeId).toBe('amazon');
   });
 
@@ -87,8 +91,12 @@ describe('rankOffers — badges', () => {
   });
 
   it('awards fastest to the lowest shippingDays.min', () => {
-    const p = getProduct('minecraft-creeper-plush-8in')!;
-    const ranked = rankOffers(p, getOffersFor(p.id), STORES, NOW);
+    const p = getProduct('lego-21595-ender-dragon')!;
+    const offers = [
+      baseOffer({ storeId: 'amazon', shippingDays: { min: 1, max: 2 } }),
+      baseOffer({ storeId: 'target', shippingDays: { min: 2, max: 4 } }),
+    ];
+    const ranked = rankOffers(p, offers, STORES, NOW);
     const fast = ranked.find((r) => r.badges.includes('fastest'));
     expect(fast?.offer.storeId).toBe('amazon');
   });
