@@ -19,7 +19,7 @@ jest.mock('expo-web-browser', () => ({
   openBrowserAsync: (...args: unknown[]) => mockOpenBrowser(...args),
 }));
 
-let mockId = 'lego-21595-ender-dragon';
+let mockId = 'lego-21261-wolf-stronghold';
 jest.mock('expo-router', () => ({
   useLocalSearchParams: () => ({ id: mockId }),
   Stack: { Screen: () => null },
@@ -28,14 +28,14 @@ jest.mock('expo-router', () => ({
 beforeEach(async () => {
   await AsyncStorage.clear();
   mockOpenBrowser.mockClear();
-  mockId = 'lego-21595-ender-dragon';
+  mockId = 'lego-21261-wolf-stronghold';
 });
 
 describe('ProductDetailScreen', () => {
   it('renders the product name and best pick', async () => {
     render(<ProductDetailScreen />);
     expect(
-      screen.getByText('LEGO Minecraft The Ender Dragon 21595')
+      screen.getByText('LEGO Minecraft The Wolf Stronghold 21261')
     ).toBeTruthy();
     expect(screen.getByTestId('open-best')).toBeTruthy();
   });
@@ -50,14 +50,14 @@ describe('ProductDetailScreen', () => {
     );
   });
 
-  it('lists the Ender Dragon offers across retailers', () => {
+  it('lists the other-store offers below the best pick', () => {
     render(<ProductDetailScreen />);
-    // The Ender Dragon has lego, amazon, and target offers; the best pick
-    // is rendered separately, so at least one of the others is in the list.
-    const others = ['offer-lego', 'offer-amazon', 'offer-target'].filter(
-      (id) => screen.queryByTestId(id)
+    // The Wolf Stronghold has amazon + lego offers; the best pick is
+    // rendered separately, so at least one other store is in the list.
+    const others = ['offer-lego', 'offer-amazon'].filter((id) =>
+      screen.queryByTestId(id)
     );
-    expect(others.length).toBeGreaterThanOrEqual(2);
+    expect(others.length).toBeGreaterThanOrEqual(1);
   });
 
   it('toggles save state and persists it', async () => {
@@ -75,7 +75,7 @@ describe('ProductDetailScreen', () => {
     fireEvent.press(screen.getByTestId('share-button'));
     await waitFor(() =>
       expect(shareSpy).toHaveBeenCalledWith({
-        message: expect.stringContaining('LEGO Minecraft The Ender Dragon'),
+        message: expect.stringContaining('LEGO Minecraft The Wolf Stronghold'),
       })
     );
     shareSpy.mockRestore();

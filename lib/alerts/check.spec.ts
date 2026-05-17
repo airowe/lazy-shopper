@@ -4,7 +4,7 @@ import type { PriceAlert } from './storage';
 const NOW = new Date('2026-05-16T00:00:00Z');
 
 const alert = (over: Partial<PriceAlert>): PriceAlert => ({
-  productId: 'lego-21595-ender-dragon',
+  productId: 'lego-21261-wolf-stronghold',
   targetPrice: 100,
   createdAt: '2026-05-10',
   triggered: false,
@@ -15,7 +15,7 @@ describe('bestInStockPrice', () => {
   // Asserts behavior, not a hardcoded dollar value — prices are refreshed
   // from live retailer data and change between runs.
   it('returns a sane best price for a real product', () => {
-    const best = bestInStockPrice('lego-21595-ender-dragon', NOW);
+    const best = bestInStockPrice('lego-21261-wolf-stronghold', NOW);
     expect(best).toBeDefined();
     expect(best!.price).toBeGreaterThan(0);
     expect(typeof best!.storeName).toBe('string');
@@ -29,7 +29,7 @@ describe('bestInStockPrice', () => {
 describe('evaluateAlerts', () => {
   // Derive thresholds from the live best price so the test survives a
   // price refresh.
-  const REAL = 'lego-21595-ender-dragon';
+  const REAL = 'lego-21261-wolf-stronghold';
   const realBest = bestInStockPrice(REAL, NOW)!.price;
 
   it('fires when the best price is at or below target', () => {
@@ -65,14 +65,14 @@ describe('evaluateAlerts', () => {
 });
 
 describe('alertsToReArm', () => {
-  const realBest = bestInStockPrice('lego-21595-ender-dragon', NOW)!.price;
+  const realBest = bestInStockPrice('lego-21261-wolf-stronghold', NOW)!.price;
 
   it('re-arms a triggered alert whose price rose back above target', () => {
     const ids = alertsToReArm(
       [alert({ targetPrice: realBest - 5, triggered: true })],
       NOW
     );
-    expect(ids).toEqual(['lego-21595-ender-dragon']);
+    expect(ids).toEqual(['lego-21261-wolf-stronghold']);
   });
 
   it('leaves a triggered alert still below target alone', () => {

@@ -9,30 +9,11 @@ import type { Offer } from './types';
 
 export const OFFERS: Offer[] = [
   {
-    "productId": "lego-21274-warden-encounter",
-    "storeId": "lego",
-    "price": 19.99,
-    "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/the-warden-encounter-21274",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.15,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "scrape"
-  },
-  {
-    "productId": "lego-21274-warden-encounter",
+    "productId": "lego-21261-wolf-stronghold",
     "storeId": "amazon",
-    "price": 19.97,
+    "price": 34.99,
     "currency": "USD",
-    "url": "https://www.amazon.com/dp/B0DRW63X1Z",
+    "url": "https://www.amazon.com/dp/B0CV2KC5RL",
     "inStock": true,
     "shippingDays": {
       "min": 1,
@@ -40,246 +21,18 @@ export const OFFERS: Offer[] = [
     },
     "freeShippingThreshold": 35,
     "unitPrice": {
-      "value": 0.13,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "scrape"
-  },
-  {
-    "productId": "lego-21274-warden-encounter",
-    "storeId": "target",
-    "price": 19.99,
-    "currency": "USD",
-    "url": "https://www.target.com/p/-/A-94152734",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.14,
+      "value": 0.11,
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
     "source": "manual"
   },
   {
-    "productId": "lego-21265-crafting-table",
+    "productId": "lego-21261-wolf-stronghold",
     "storeId": "lego",
-    "price": 89.99,
+    "price": 34.99,
     "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/the-crafting-table-21265",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.22,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "scrape"
-  },
-  {
-    "productId": "lego-21265-crafting-table",
-    "storeId": "amazon",
-    "price": 77.88,
-    "currency": "USD",
-    "url": "https://www.amazon.com/dp/B0CRX64YFN",
-    "inStock": true,
-    "shippingDays": {
-      "min": 1,
-      "max": 2
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.21,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "scrape"
-  },
-  {
-    "productId": "lego-21265-crafting-table",
-    "storeId": "bestbuy",
-    "price": 89.99,
-    "currency": "USD",
-    "url": "https://www.bestbuy.com/product/lego-minecraft-the-crafting-table-build-and-display-set-for-adults-21265/JXPLL2Q4W5",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.22,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21592-chicken-rider",
-    "storeId": "lego",
-    "price": 9.99,
-    "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/chicken-rider-desert-attack-21592",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.13,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21592-chicken-rider",
-    "storeId": "walmart",
-    "price": 9.99,
-    "currency": "USD",
-    "url": "https://www.walmart.com/search?q=lego+minecraft+21592",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.13,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21592-chicken-rider",
-    "storeId": "target",
-    "price": 9.99,
-    "currency": "USD",
-    "url": "https://www.target.com/s?searchTerm=lego+minecraft+21592",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.13,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21593-surviving-first-night",
-    "storeId": "lego",
-    "price": 14.99,
-    "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/surviving-the-first-night-21593",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.08,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21593-surviving-first-night",
-    "storeId": "amazon",
-    "price": 14.99,
-    "currency": "USD",
-    "url": "https://www.amazon.com/s?k=lego+minecraft+21593",
-    "inStock": true,
-    "shippingDays": {
-      "min": 1,
-      "max": 2
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.07,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21595-ender-dragon",
-    "storeId": "lego",
-    "price": 69.99,
-    "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/the-ender-dragon-21595",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.08,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "scrape"
-  },
-  {
-    "productId": "lego-21595-ender-dragon",
-    "storeId": "amazon",
-    "price": 59.99,
-    "currency": "USD",
-    "url": "https://www.amazon.com/s?k=lego+minecraft+21595",
-    "inStock": true,
-    "shippingDays": {
-      "min": 1,
-      "max": 2
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.07,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21595-ender-dragon",
-    "storeId": "target",
-    "price": 59.99,
-    "currency": "USD",
-    "url": "https://www.target.com/s?searchTerm=lego+minecraft+21595",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.08,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21597-ghast-station",
-    "storeId": "lego",
-    "price": 29.99,
-    "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/ghast-station-21597",
+    "url": "https://www.lego.com/en-us/product/the-wolf-stronghold-21261",
     "inStock": true,
     "shippingDays": {
       "min": 3,
@@ -291,90 +44,14 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-21597-ghast-station",
-    "storeId": "walmart",
-    "price": 29.99,
-    "currency": "USD",
-    "url": "https://www.walmart.com/search?q=lego+minecraft+21597",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.1,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-75408-mandalorian-grogu-speeder",
-    "storeId": "lego",
-    "price": 6.95,
-    "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/din-djarin-and-grogu-s-speeder-bike-75408",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.17,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
     "source": "scrape"
   },
   {
-    "productId": "lego-75408-mandalorian-grogu-speeder",
-    "storeId": "target",
-    "price": 9.99,
-    "currency": "USD",
-    "url": "https://www.target.com/s?searchTerm=lego+star+wars+75408",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.17,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "lego-75409-cobb-vanth-cad-bane",
-    "storeId": "lego",
-    "price": 35,
-    "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/75409",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.17,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "scrape"
-  },
-  {
-    "productId": "lego-75409-cobb-vanth-cad-bane",
+    "productId": "lego-21260-cherry-blossom-garden",
     "storeId": "amazon",
-    "price": 34.99,
+    "price": 27.99,
     "currency": "USD",
-    "url": "https://www.amazon.com/s?k=lego+star+wars+75409",
+    "url": "https://www.amazon.com/dp/B0CV297ML5",
     "inStock": true,
     "shippingDays": {
       "min": 1,
@@ -382,18 +59,18 @@ export const OFFERS: Offer[] = [
     },
     "freeShippingThreshold": 35,
     "unitPrice": {
-      "value": 0.16,
+      "value": 0.09,
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
     "source": "manual"
   },
   {
-    "productId": "lego-60440-city-coast-guard",
+    "productId": "lego-21260-cherry-blossom-garden",
     "storeId": "lego",
-    "price": 14.99,
+    "price": 27.99,
     "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/60440",
+    "url": "https://www.lego.com/en-us/product/the-cherry-blossom-garden-21260",
     "inStock": true,
     "shippingDays": {
       "min": 3,
@@ -405,34 +82,34 @@ export const OFFERS: Offer[] = [
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
-    "productId": "lego-60440-city-coast-guard",
-    "storeId": "walmart",
-    "price": 14.99,
+    "productId": "lego-75387-boarding-tantive-iv",
+    "storeId": "amazon",
+    "price": 54.99,
     "currency": "USD",
-    "url": "https://www.walmart.com/search?q=lego+city+60440",
+    "url": "https://www.amazon.com/dp/B0CGY4QJTC",
     "inStock": true,
     "shippingDays": {
-      "min": 2,
-      "max": 4
+      "min": 1,
+      "max": 2
     },
     "freeShippingThreshold": 35,
     "unitPrice": {
-      "value": 0.08,
+      "value": 0.11,
       "unit": "piece"
     },
     "capturedAt": "2026-05-17",
     "source": "manual"
   },
   {
-    "productId": "lego-42231-fast-furious-charger",
+    "productId": "lego-75387-boarding-tantive-iv",
     "storeId": "lego",
-    "price": 159.99,
+    "price": 54.99,
     "currency": "USD",
-    "url": "https://www.lego.com/en-us/product/42231",
-    "inStock": false,
+    "url": "https://www.lego.com/en-us/product/boarding-the-tantive-iv-75387",
+    "inStock": true,
     "shippingDays": {
       "min": 3,
       "max": 5
@@ -446,28 +123,9 @@ export const OFFERS: Offer[] = [
     "source": "scrape"
   },
   {
-    "productId": "lego-42231-fast-furious-charger",
-    "storeId": "amazon",
-    "price": 159.99,
-    "currency": "USD",
-    "url": "https://www.amazon.com/s?k=lego+technic+42231",
-    "inStock": true,
-    "shippingDays": {
-      "min": 1,
-      "max": 3
-    },
-    "freeShippingThreshold": 35,
-    "unitPrice": {
-      "value": 0.11,
-      "unit": "piece"
-    },
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
     "productId": "minecraft-creeper-plush-8in",
     "storeId": "amazon",
-    "price": 14.99,
+    "price": 10.99,
     "currency": "USD",
     "url": "https://www.amazon.com/dp/B08HR84LWQ",
     "inStock": true,
@@ -480,60 +138,30 @@ export const OFFERS: Offer[] = [
     "source": "scrape"
   },
   {
-    "productId": "minecraft-creeper-plush-8in",
-    "storeId": "target",
-    "price": 24.95,
-    "currency": "USD",
-    "url": "https://www.target.com/p/-/A-81510710",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "minecraft-creeper-plush-8in",
-    "storeId": "walmart",
-    "price": 24.95,
-    "currency": "USD",
-    "url": "https://www.walmart.com/search?q=minecraft+creeper+plush",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "minecraft-enderman-plush-7in",
+    "productId": "minecraft-creeper-plush-16in",
     "storeId": "amazon",
-    "price": 15.99,
+    "price": 24.99,
     "currency": "USD",
-    "url": "https://www.amazon.com/dp/B00F65I83A",
+    "url": "https://www.amazon.com/dp/B0CNJGRZVH",
     "inStock": true,
     "shippingDays": {
       "min": 1,
-      "max": 3
+      "max": 2
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",
-    "source": "scrape"
+    "source": "manual"
   },
   {
-    "productId": "minecraft-enderman-plush-7in",
-    "storeId": "walmart",
+    "productId": "minecraft-cuutopia-creeper-plush",
+    "storeId": "amazon",
     "price": 19.99,
     "currency": "USD",
-    "url": "https://www.walmart.com/search?q=minecraft+enderman+plush",
+    "url": "https://www.amazon.com/dp/B09QLGYM6T",
     "inStock": true,
     "shippingDays": {
-      "min": 2,
-      "max": 5
+      "min": 1,
+      "max": 2
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",
@@ -555,71 +183,11 @@ export const OFFERS: Offer[] = [
     "source": "scrape"
   },
   {
-    "productId": "minecraft-game-switch",
-    "storeId": "gamestop",
-    "price": 29.99,
-    "currency": "USD",
-    "url": "https://www.gamestop.com/video-games/nintendo-switch/products/minecraft---nintendo-switch/171236.html",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 6
-    },
-    "freeShippingThreshold": 59,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "minecraft-game-switch",
-    "storeId": "target",
-    "price": 29.99,
-    "currency": "USD",
-    "url": "https://www.target.com/s?searchTerm=minecraft+nintendo+switch",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "minecraft-game-xbox",
-    "storeId": "gamestop",
-    "price": 19.99,
-    "currency": "USD",
-    "url": "https://www.gamestop.com/search/?q=minecraft+xbox",
-    "inStock": true,
-    "shippingDays": {
-      "min": 3,
-      "max": 6
-    },
-    "freeShippingThreshold": 59,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "minecraft-game-xbox",
-    "storeId": "bestbuy",
-    "price": 19.99,
-    "currency": "USD",
-    "url": "https://www.bestbuy.com/site/searchpage.jsp?st=minecraft+xbox",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
     "productId": "beyblade-x-xtreme-battle-set",
     "storeId": "amazon",
-    "price": 54.99,
+    "price": 39.99,
     "currency": "USD",
-    "url": "https://www.amazon.com/dp/B0CS8CM4YB",
+    "url": "https://www.amazon.com/dp/B0CQ3HMP9M",
     "inStock": true,
     "shippingDays": {
       "min": 1,
@@ -630,90 +198,30 @@ export const OFFERS: Offer[] = [
     "source": "manual"
   },
   {
-    "productId": "beyblade-x-xtreme-battle-set",
-    "storeId": "target",
-    "price": 54.99,
-    "currency": "USD",
-    "url": "https://www.target.com/s?searchTerm=beyblade+x+xtreme+battle+set",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "beyblade-x-xtreme-battle-set",
-    "storeId": "walmart",
-    "price": 54.99,
-    "currency": "USD",
-    "url": "https://www.walmart.com/search?q=beyblade+x+xtreme+battle+set",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 5
-    },
-    "freeShippingThreshold": 35,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "beyblade-x-rage-ragna-starter",
+    "productId": "beyblade-x-drop-attack-battle-set",
     "storeId": "amazon",
-    "price": 14.99,
+    "price": 29.59,
     "currency": "USD",
-    "url": "https://www.amazon.com/s?k=beyblade+x+rage+ragna",
+    "url": "https://www.amazon.com/dp/B0DN6YTNYZ",
     "inStock": true,
     "shippingDays": {
       "min": 1,
-      "max": 3
+      "max": 2
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",
-    "source": "manual"
+    "source": "scrape"
   },
   {
-    "productId": "beyblade-x-rage-ragna-starter",
-    "storeId": "target",
-    "price": 14.99,
-    "currency": "USD",
-    "url": "https://www.target.com/s?searchTerm=beyblade+x+rage+ragna",
-    "inStock": false,
-    "shippingDays": {
-      "min": 2,
-      "max": 4
-    },
-    "freeShippingThreshold": 35,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "beyblade-x-clip-rip-launcher",
+    "productId": "beyblade-x-sword-dran-starter",
     "storeId": "amazon",
-    "price": 29.99,
+    "price": 9.99,
     "currency": "USD",
-    "url": "https://www.amazon.com/s?k=beyblade+x+clip+rip+launcher",
+    "url": "https://www.amazon.com/dp/B0CS8L1HGM",
     "inStock": true,
     "shippingDays": {
       "min": 1,
-      "max": 3
-    },
-    "freeShippingThreshold": 35,
-    "capturedAt": "2026-05-17",
-    "source": "manual"
-  },
-  {
-    "productId": "beyblade-x-clip-rip-launcher",
-    "storeId": "walmart",
-    "price": 29.99,
-    "currency": "USD",
-    "url": "https://www.walmart.com/search?q=beyblade+x+clip+rip+launcher",
-    "inStock": true,
-    "shippingDays": {
-      "min": 2,
-      "max": 5
+      "max": 2
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",

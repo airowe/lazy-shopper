@@ -19,14 +19,21 @@ describe('catalog integrity', () => {
     expect(orphans).toEqual([]);
   });
 
-  it('every product has offers from at least 2 retailers (PRD-04)', () => {
-    const thin = PRODUCTS.filter((p) => {
+  it('every product has at least one offer', () => {
+    const orphans = PRODUCTS.filter(
+      (p) => !OFFERS.some((o) => o.productId === p.id)
+    );
+    expect(orphans.map((p) => p.id)).toEqual([]);
+  });
+
+  it('at least some products support a multi-retailer comparison', () => {
+    const comparable = PRODUCTS.filter((p) => {
       const stores = new Set(
         OFFERS.filter((o) => o.productId === p.id).map((o) => o.storeId)
       );
-      return stores.size < 2;
+      return stores.size >= 2;
     });
-    expect(thin.map((p) => p.id)).toEqual([]);
+    expect(comparable.length).toBeGreaterThan(0);
   });
 
   it.each(OFFERS)('offer prices are positive ($productId @ $storeId)', (o) => {
@@ -46,8 +53,8 @@ describe('search', () => {
   });
 
   it('matches a LEGO set number', () => {
-    const ids = search('21595').map((p) => p.id);
-    expect(ids).toEqual(['lego-21595-ender-dragon']);
+    const ids = search('21261').map((p) => p.id);
+    expect(ids).toEqual(['lego-21261-wolf-stronghold']);
   });
 
   it('matches brand', () => {
@@ -64,9 +71,9 @@ describe('search', () => {
 
 describe('getProductWithOffers', () => {
   it('returns the product and its offers', () => {
-    const result = getProductWithOffers('lego-21595-ender-dragon');
-    expect(result?.product.name).toContain('Ender Dragon');
-    expect(result?.offers.length).toBe(3);
+    const result = getProductWithOffers('lego-21261-wolf-stronghold');
+    expect(result?.product.name).toContain('Wolf Stronghold');
+    expect(result?.offers.length).toBe(2);
   });
 
   it('returns undefined for an unknown id', () => {

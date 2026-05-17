@@ -20,12 +20,12 @@ const baseOffer = (over: Partial<Offer>): Offer => ({
 
 describe('rankOffers — ordering', () => {
   it('returns [] for no offers', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     expect(rankOffers(p, [], STORES, NOW)).toEqual([]);
   });
 
   it('puts in-stock offers before out-of-stock', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', price: 10, inStock: false }),
       baseOffer({ storeId: 'target', price: 99, inStock: true }),
@@ -36,7 +36,7 @@ describe('rankOffers — ordering', () => {
   });
 
   it('sorts in-stock offers by price ascending', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'target', price: 59.99 }),
       baseOffer({ storeId: 'amazon', price: 56.99 }),
@@ -47,7 +47,7 @@ describe('rankOffers — ordering', () => {
   });
 
   it('breaks a price tie by higher store rating', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     // target rating 4.6, lego rating 4.8 — lego should win the tie
     const offers = [
       baseOffer({ storeId: 'target', price: 59.99 }),
@@ -58,7 +58,7 @@ describe('rankOffers — ordering', () => {
   });
 
   it('is deterministic for identical inputs', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = getOffersFor(p.id);
     const a = rankOffers(p, offers, STORES, NOW);
     const b = rankOffers(p, offers, STORES, NOW);
@@ -68,7 +68,7 @@ describe('rankOffers — ordering', () => {
 
 describe('rankOffers — badges', () => {
   it('awards best-value to the cheapest in-stock offer', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', price: 14.99 }),
       baseOffer({ storeId: 'target', price: 24.95 }),
@@ -80,7 +80,7 @@ describe('rankOffers — badges', () => {
   });
 
   it('never awards best-value to an out-of-stock offer', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', price: 5, inStock: false }),
       baseOffer({ storeId: 'target', price: 50, inStock: true }),
@@ -91,7 +91,7 @@ describe('rankOffers — badges', () => {
   });
 
   it('awards fastest to the lowest shippingDays.min', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', shippingDays: { min: 1, max: 2 } }),
       baseOffer({ storeId: 'target', shippingDays: { min: 2, max: 4 } }),
@@ -102,7 +102,7 @@ describe('rankOffers — badges', () => {
   });
 
   it('suppresses fastest when all in-stock offers tie on shipping', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', shippingDays: { min: 2, max: 4 } }),
       baseOffer({ storeId: 'target', shippingDays: { min: 2, max: 5 } }),
@@ -118,7 +118,7 @@ describe('rankOffers — badges', () => {
   });
 
   it('awards no best-value/fastest when every offer is out of stock', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', inStock: false }),
       baseOffer({ storeId: 'target', inStock: false }),
@@ -128,7 +128,7 @@ describe('rankOffers — badges', () => {
   });
 
   it('prefers a free-shipping offer for best-value when within $1', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     // amazon $34.50 under the $35 threshold; target $35.20 clears it
     const offers = [
       baseOffer({ storeId: 'amazon', price: 34.5, freeShippingThreshold: 35 }),
@@ -142,7 +142,7 @@ describe('rankOffers — badges', () => {
 
 describe('rankOffers — staleness', () => {
   it('flags an offer older than 14 days as stale', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', capturedAt: '2026-05-01' }), // 15 days
       baseOffer({ storeId: 'target', capturedAt: '2026-05-15' }), // 1 day
@@ -153,7 +153,7 @@ describe('rankOffers — staleness', () => {
   });
 
   it('drops offers older than 30 days from ranking', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', capturedAt: '2026-04-10' }), // 36 days
       baseOffer({ storeId: 'target', capturedAt: '2026-05-15' }),
@@ -163,7 +163,7 @@ describe('rankOffers — staleness', () => {
   });
 
   it('returns [] when every offer is stale-dropped', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const offers = [
       baseOffer({ storeId: 'amazon', capturedAt: '2026-03-01' }),
       baseOffer({ storeId: 'target', capturedAt: '2026-03-01' }),
@@ -174,7 +174,7 @@ describe('rankOffers — staleness', () => {
 
 describe('rankOffers — effective price', () => {
   it('sets effectivePrice equal to price in v1', () => {
-    const p = getProduct('lego-21595-ender-dragon')!;
+    const p = getProduct('lego-21261-wolf-stronghold')!;
     const ranked = rankOffers(p, getOffersFor(p.id), STORES, NOW);
     ranked.forEach((r) => expect(r.effectivePrice).toBe(r.offer.price));
   });

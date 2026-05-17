@@ -90,11 +90,27 @@ For everything else (a single plush, a t-shirt, a copy of the game), unit price 
 
 Categories live on `Product.category` so search and (eventually) filtering can scope by category.
 
-Prices for v1 are **plausible scaffolding, not verified**. Every offer gets `source: 'manual'` and a recent `capturedAt`. Before Bowie actually uses the app, we sweep through and verify/update the prices — or wire a real source. **PRD-00's "real prices or no prices" principle still applies before shipping;** the seed file is a development scaffold so we can build the UI against real-shape data.
+**Catalog audit (May 2026):** the first seed draft had fabricated and
+mis-numbered products. The catalog was rebuilt from a verified product list —
+every product now has a real name, real LEGO set number / Amazon ASIN, and is
+released and buyable. Fabricated, mis-numbered, and unreleased-2026 entries
+were dropped.
 
-**Each product needs offers from at least 2 retailers** or it doesn't ship in v1. A "comparison" of one isn't a comparison.
+Prices come from `scripts/refresh-prices.ts`, which fetches live retailer
+prices via the TinyFish Fetch API and regenerates `offers.ts`. A page that
+blocks the fetch or yields no parseable price falls back to verified
+manufacturer RRP (`source: 'manual'`); scraped prices are `source: 'scrape'`.
+The hand-authored seed lives in `offers.seed.ts`.
 
-Expansion happens once the v1 catalog is shipped. Phase 2 widens the catalog *and* moves prices to real APIs in the same pass.
+**Each product needs at least one verified offer.** The earlier "≥2 retailers"
+rule was relaxed: the audit could only verify a direct Amazon product page for
+plush / Beyblade / game items, and fabricating a second retailer's offer to
+hit the rule would violate "real prices or no prices." LEGO sets have two
+offers (Amazon + LEGO Shop). Single-offer products show no cross-store
+comparison until more retailers are verified — honest, if thinner.
+
+Expansion happens once the v1 catalog is shipped. Phase 2 widens the catalog,
+adds verified second-retailer offers, and improves scrape coverage.
 
 ## Where prices come from (by phase)
 

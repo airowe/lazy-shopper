@@ -13,7 +13,7 @@ jest.mock('@react-native-async-storage/async-storage', () =>
 );
 
 const REAL = 'minecraft-creeper-plush-8in';
-const REAL2 = 'lego-21595-ender-dragon';
+const REAL2 = 'lego-21261-wolf-stronghold';
 
 beforeEach(async () => {
   await AsyncStorage.clear();
