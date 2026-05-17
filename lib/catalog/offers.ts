@@ -138,6 +138,21 @@ export const OFFERS: Offer[] = [
     "source": "scrape"
   },
   {
+    "productId": "minecraft-creeper-plush-8in",
+    "storeId": "walmart",
+    "price": 14.99,
+    "currency": "USD",
+    "url": "https://www.walmart.com/ip/Minecraft-Basic-Plush-Creeper-Stuffed-Animal-8-inch-Soft-Doll-Inspired-by-Video-Game-Character/277349703",
+    "inStock": true,
+    "shippingDays": {
+      "min": 2,
+      "max": 4
+    },
+    "freeShippingThreshold": 35,
+    "capturedAt": "2026-05-17",
+    "source": "manual"
+  },
+  {
     "productId": "minecraft-creeper-plush-16in",
     "storeId": "amazon",
     "price": 24.99,
@@ -147,6 +162,21 @@ export const OFFERS: Offer[] = [
     "shippingDays": {
       "min": 1,
       "max": 2
+    },
+    "freeShippingThreshold": 35,
+    "capturedAt": "2026-05-17",
+    "source": "manual"
+  },
+  {
+    "productId": "minecraft-creeper-plush-16in",
+    "storeId": "walmart",
+    "price": 24.99,
+    "currency": "USD",
+    "url": "https://www.walmart.com/ip/Minecraft-Creeper-16-in-Scale-Jumbo-Plush-Figure-with-Pixelated-Design-Game/12909910834",
+    "inStock": true,
+    "shippingDays": {
+      "min": 2,
+      "max": 4
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",
@@ -168,6 +198,21 @@ export const OFFERS: Offer[] = [
     "source": "manual"
   },
   {
+    "productId": "minecraft-cuutopia-creeper-plush",
+    "storeId": "target",
+    "price": 19.99,
+    "currency": "USD",
+    "url": "https://www.target.com/p/mattel-minecraft-cuutopia-creeper-plush-10-inch-soft-rounded-pillow-doll/-/A-1001588773",
+    "inStock": true,
+    "shippingDays": {
+      "min": 2,
+      "max": 4
+    },
+    "freeShippingThreshold": 35,
+    "capturedAt": "2026-05-17",
+    "source": "manual"
+  },
+  {
     "productId": "minecraft-game-switch",
     "storeId": "amazon",
     "price": 29.83,
@@ -183,6 +228,21 @@ export const OFFERS: Offer[] = [
     "source": "scrape"
   },
   {
+    "productId": "minecraft-game-switch",
+    "storeId": "target",
+    "price": 29.99,
+    "currency": "USD",
+    "url": "https://www.target.com/p/minecraft-nintendo-switch/-/A-53662394",
+    "inStock": true,
+    "shippingDays": {
+      "min": 2,
+      "max": 4
+    },
+    "freeShippingThreshold": 35,
+    "capturedAt": "2026-05-17",
+    "source": "manual"
+  },
+  {
     "productId": "beyblade-x-xtreme-battle-set",
     "storeId": "amazon",
     "price": 39.99,
@@ -192,6 +252,21 @@ export const OFFERS: Offer[] = [
     "shippingDays": {
       "min": 1,
       "max": 2
+    },
+    "freeShippingThreshold": 35,
+    "capturedAt": "2026-05-17",
+    "source": "manual"
+  },
+  {
+    "productId": "beyblade-x-xtreme-battle-set",
+    "storeId": "walmart",
+    "price": 39.99,
+    "currency": "USD",
+    "url": "https://www.walmart.com/ip/Beyblade-X-Xtreme-Battle-Set-with-Beystadium-2-Right-Spinning-Battling-Tops-and-2-Launchers/5455100107",
+    "inStock": true,
+    "shippingDays": {
+      "min": 2,
+      "max": 4
     },
     "freeShippingThreshold": 35,
     "capturedAt": "2026-05-17",
@@ -213,6 +288,21 @@ export const OFFERS: Offer[] = [
     "source": "scrape"
   },
   {
+    "productId": "beyblade-x-drop-attack-battle-set",
+    "storeId": "target",
+    "price": 39.99,
+    "currency": "USD",
+    "url": "https://www.target.com/p/beyblade-x-drop-attack-battle-set/-/A-93565570",
+    "inStock": true,
+    "shippingDays": {
+      "min": 2,
+      "max": 4
+    },
+    "freeShippingThreshold": 35,
+    "capturedAt": "2026-05-17",
+    "source": "manual"
+  },
+  {
     "productId": "beyblade-x-sword-dran-starter",
     "storeId": "amazon",
     "price": 9.99,
@@ -224,6 +314,21 @@ export const OFFERS: Offer[] = [
       "max": 2
     },
     "freeShippingThreshold": 35,
+    "capturedAt": "2026-05-17",
+    "source": "manual"
+  },
+  {
+    "productId": "beyblade-x-sword-dran-starter",
+    "storeId": "gamestop",
+    "price": 9.99,
+    "currency": "USD",
+    "url": "https://www.gamestop.com/toys-games/fidget-toys/products/hasbro-beyblade-x-dran-3-60f-starter-pack/20010503.html",
+    "inStock": true,
+    "shippingDays": {
+      "min": 3,
+      "max": 6
+    },
+    "freeShippingThreshold": 59,
     "capturedAt": "2026-05-17",
     "source": "manual"
   }

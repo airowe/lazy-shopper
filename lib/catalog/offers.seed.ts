@@ -11,6 +11,9 @@ const CAPTURED = '2026-05-17';
 
 const FREE_SHIP_AMAZON = 35;
 const FREE_SHIP_LEGO = 35;
+const FREE_SHIP_TARGET = 35;
+const FREE_SHIP_WALMART = 35;
+const FREE_SHIP_GAMESTOP = 59;
 
 export const SEED_OFFERS: Offer[] = [
   // --- LEGO Minecraft The Wolf Stronghold 21261 (RRP $34.99) ---
@@ -111,6 +114,19 @@ export const SEED_OFFERS: Offer[] = [
     source: 'manual',
   },
 
+  {
+    productId: 'minecraft-creeper-plush-8in',
+    storeId: 'walmart',
+    price: 14.99,
+    currency: 'USD',
+    url: 'https://www.walmart.com/ip/Minecraft-Basic-Plush-Creeper-Stuffed-Animal-8-inch-Soft-Doll-Inspired-by-Video-Game-Character/277349703',
+    inStock: true,
+    shippingDays: { min: 2, max: 4 },
+    freeShippingThreshold: FREE_SHIP_WALMART,
+    capturedAt: CAPTURED,
+    source: 'manual',
+  },
+
   // --- Minecraft Creeper Jumbo Plush 16" (RRP $24.99) ---
   {
     productId: 'minecraft-creeper-plush-16in',
@@ -121,6 +137,18 @@ export const SEED_OFFERS: Offer[] = [
     inStock: true,
     shippingDays: { min: 1, max: 2 },
     freeShippingThreshold: FREE_SHIP_AMAZON,
+    capturedAt: CAPTURED,
+    source: 'manual',
+  },
+  {
+    productId: 'minecraft-creeper-plush-16in',
+    storeId: 'walmart',
+    price: 24.99,
+    currency: 'USD',
+    url: 'https://www.walmart.com/ip/Minecraft-Creeper-16-in-Scale-Jumbo-Plush-Figure-with-Pixelated-Design-Game/12909910834',
+    inStock: true,
+    shippingDays: { min: 2, max: 4 },
+    freeShippingThreshold: FREE_SHIP_WALMART,
     capturedAt: CAPTURED,
     source: 'manual',
   },
@@ -138,6 +166,18 @@ export const SEED_OFFERS: Offer[] = [
     capturedAt: CAPTURED,
     source: 'manual',
   },
+  {
+    productId: 'minecraft-cuutopia-creeper-plush',
+    storeId: 'target',
+    price: 19.99,
+    currency: 'USD',
+    url: 'https://www.target.com/p/mattel-minecraft-cuutopia-creeper-plush-10-inch-soft-rounded-pillow-doll/-/A-1001588773',
+    inStock: true,
+    shippingDays: { min: 2, max: 4 },
+    freeShippingThreshold: FREE_SHIP_TARGET,
+    capturedAt: CAPTURED,
+    source: 'manual',
+  },
 
   // --- Minecraft — Nintendo Switch (RRP $29.99) ---
   {
@@ -149,6 +189,18 @@ export const SEED_OFFERS: Offer[] = [
     inStock: true,
     shippingDays: { min: 1, max: 2 },
     freeShippingThreshold: FREE_SHIP_AMAZON,
+    capturedAt: CAPTURED,
+    source: 'manual',
+  },
+  {
+    productId: 'minecraft-game-switch',
+    storeId: 'target',
+    price: 29.99,
+    currency: 'USD',
+    url: 'https://www.target.com/p/minecraft-nintendo-switch/-/A-53662394',
+    inStock: true,
+    shippingDays: { min: 2, max: 4 },
+    freeShippingThreshold: FREE_SHIP_TARGET,
     capturedAt: CAPTURED,
     source: 'manual',
   },
@@ -166,6 +218,18 @@ export const SEED_OFFERS: Offer[] = [
     capturedAt: CAPTURED,
     source: 'manual',
   },
+  {
+    productId: 'beyblade-x-xtreme-battle-set',
+    storeId: 'walmart',
+    price: 39.99,
+    currency: 'USD',
+    url: 'https://www.walmart.com/ip/Beyblade-X-Xtreme-Battle-Set-with-Beystadium-2-Right-Spinning-Battling-Tops-and-2-Launchers/5455100107',
+    inStock: true,
+    shippingDays: { min: 2, max: 4 },
+    freeShippingThreshold: FREE_SHIP_WALMART,
+    capturedAt: CAPTURED,
+    source: 'manual',
+  },
 
   // --- Beyblade X Drop Attack Battle Set (RRP $39.99) ---
   {
@@ -180,6 +244,18 @@ export const SEED_OFFERS: Offer[] = [
     capturedAt: CAPTURED,
     source: 'manual',
   },
+  {
+    productId: 'beyblade-x-drop-attack-battle-set',
+    storeId: 'target',
+    price: 39.99,
+    currency: 'USD',
+    url: 'https://www.target.com/p/beyblade-x-drop-attack-battle-set/-/A-93565570',
+    inStock: true,
+    shippingDays: { min: 2, max: 4 },
+    freeShippingThreshold: FREE_SHIP_TARGET,
+    capturedAt: CAPTURED,
+    source: 'manual',
+  },
 
   // --- Beyblade X Sword Dran 3-60F Starter Pack (RRP $9.99) ---
   {
@@ -191,6 +267,18 @@ export const SEED_OFFERS: Offer[] = [
     inStock: true,
     shippingDays: { min: 1, max: 2 },
     freeShippingThreshold: FREE_SHIP_AMAZON,
+    capturedAt: CAPTURED,
+    source: 'manual',
+  },
+  {
+    productId: 'beyblade-x-sword-dran-starter',
+    storeId: 'gamestop',
+    price: 9.99,
+    currency: 'USD',
+    url: 'https://www.gamestop.com/toys-games/fidget-toys/products/hasbro-beyblade-x-dran-3-60f-starter-pack/20010503.html',
+    inStock: true,
+    shippingDays: { min: 3, max: 6 },
+    freeShippingThreshold: FREE_SHIP_GAMESTOP,
     capturedAt: CAPTURED,
     source: 'manual',
   },
