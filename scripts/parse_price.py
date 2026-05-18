@@ -17,20 +17,38 @@ _PRICE_RE = re.compile(r"\$\s?([0-9]+)(\.[0-9]{2})?")
 _AMAZON_BUYBOX_RE = re.compile(r'"priceAmount"\s*:\s*([0-9]+(?:\.[0-9]+)?)')
 
 
-def _plausible(price: float, rrp: float) -> bool:
-    """A scraped price is trusted only within a sane band around RRP."""
+# A kid-product price floor/ceiling — rejects $0 / shipping-cost / absurd
+# values without depending on a possibly-rough RRP estimate.
+_ABS_MIN = 3.0
+_ABS_MAX = 700.0
+
+
+def _plausible(price: float, rrp: float | None) -> bool:
+    """Trusted only within a sane band. With a known RRP, that's 0.55-1.2x
+    RRP; without one, just the absolute kid-product floor/ceiling."""
+    if not (_ABS_MIN <= price <= _ABS_MAX):
+        return False
+    if rrp is None:
+        return True
     return rrp * 0.55 <= price <= rrp * 1.2
 
 
-def _parse_amazon(text: str, rrp: float) -> float | None:
+def _parse_amazon(text: str, rrp: float | None) -> float | None:
+    """Amazon embeds an authoritative buybox price — but a page can serve a
+    different variant's buybox. Reject obviously-bogus values always, and
+    RRP-implausible ones when a real RRP is known."""
     m = _AMAZON_BUYBOX_RE.search(text)
     if not m:
         return None
     price = round(float(m.group(1)), 2)
-    return price if _plausible(price, rrp) else None
+    if not (_ABS_MIN <= price <= _ABS_MAX):
+        return None
+    if rrp is not None and not _plausible(price, rrp):
+        return None
+    return price
 
 
-def _most_frequent_price(text: str, rrp: float) -> float | None:
+def _most_frequent_price(text: str, rrp: float | None) -> float | None:
     """Pick the real price from a noisy page.
 
     Strategy: among plausible amounts, strongly prefer those written with
@@ -55,7 +73,9 @@ def _most_frequent_price(text: str, rrp: float) -> float | None:
     return max(chosen.items(), key=lambda kv: (kv[1], kv[0]))[0]
 
 
-def parse_price(text: str | None, store_id: str, rrp: float) -> float | None:
+def parse_price(
+    text: str | None, store_id: str, rrp: float | None
+) -> float | None:
     if not text:
         return None
     if store_id == "amazon":

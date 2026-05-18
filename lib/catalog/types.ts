@@ -37,6 +37,9 @@ export type Product = {
   pieceCount?: number;
   releaseYear?: number;
   discontinued?: boolean;
+  // Approximate manufacturer list price, used by the price scraper as a
+  // noise-rejection reference. Optional — absent means a wide band.
+  rrp?: number;
   identifiers: {
     upc?: string;
     asin?: string;
@@ -44,6 +47,11 @@ export type Product = {
     targetTcin?: string;
     walmartItemId?: string;
   };
+  // Verified full retailer product-page URLs. The price scraper crawls
+  // these directly — retailer URLs need a slug segment that can't be
+  // reconstructed from an ID alone. The Amazon offer is derived from
+  // identifiers.asin; this is for additional retailers.
+  retailerUrls?: Partial<Record<StoreId, string>>;
 };
 
 export type Store = {
